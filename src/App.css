@@ -128,25 +128,6 @@
   border-radius: 2px;
 }
 
-.app__config-warning {
-  width: 100%;
-  text-align: left;
-  font-size: 0.875rem;
-  line-height: 1.55;
-  color: var(--text-h);
-  background: var(--danger-soft);
-  border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border));
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
-  margin: 0 0 1.25rem;
-}
-
-.app__code {
-  font-family: var(--mono);
-  font-size: 0.85em;
-  word-break: break-all;
-}
-
 /* Two-column from ~900px */
 .app__grid {
   display: grid;

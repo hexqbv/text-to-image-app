@@ -126,9 +126,7 @@ function App() {
     if (!trimmed) return
 
     if (!token?.trim()) {
-      setError(
-        'Missing Hugging Face token. Add VITE_HF_TOKEN to .env.local (see .env.example).',
-      )
+      setError('Image generation is not configured. Please try again later.')
       return
     }
 
@@ -154,7 +152,6 @@ function App() {
     }
   }
 
-  const missingToken = !token?.trim()
   const downloadName = `generated-${Date.now()}.png`
 
   return (
@@ -200,15 +197,6 @@ function App() {
           </p>
         </header>
 
-        {missingToken && (
-          <p className="app__config-warning" role="status">
-            Set <code className="app__code">VITE_HF_TOKEN</code> in{' '}
-            <code className="app__code">.env.local</code> (see{' '}
-            <code className="app__code">.env.example</code>), then restart{' '}
-            <code className="app__code">npm run dev</code>.
-          </p>
-        )}
-
         <div className="app__grid">
           <section className="app__panel" aria-label="Generation controls">
             <label className="app__label" htmlFor="prompt-input">
@@ -230,7 +218,7 @@ function App() {
                 type="button"
                 className="app__generate"
                 onClick={handleGenerate}
-                disabled={loading || !prompt.trim() || missingToken}
+                disabled={loading || !prompt.trim()}
               >
                 {loading ? (
                   <>
